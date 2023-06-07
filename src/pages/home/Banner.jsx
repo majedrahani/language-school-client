@@ -3,20 +3,18 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/navigation";
 import "swiper/css";
 import { Navigation } from "swiper";
+import banner_1 from '../../assets/banner-1.png'
+import banner_2 from '../../assets/banner-2.png'
+import banner_3 from '../../assets/banner-3.png'
 
 const Banner = () => {
     return (
         <>
           <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
-            <SwiperSlide>Slide 1</SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-            <SwiperSlide>Slide 4</SwiperSlide>
-            <SwiperSlide>Slide 5</SwiperSlide>
-            <SwiperSlide>Slide 6</SwiperSlide>
-            <SwiperSlide>Slide 7</SwiperSlide>
-            <SwiperSlide>Slide 8</SwiperSlide>
-            <SwiperSlide>Slide 9</SwiperSlide>
+            <SwiperSlide><img className=" w-full" src={banner_1} alt="banner image 1" /></SwiperSlide>
+            <SwiperSlide><img className=" w-full" src={banner_2} alt="banner image 2" /></SwiperSlide>
+            <SwiperSlide><img className=" w-full" src={banner_3} alt="banner image 3" /></SwiperSlide>
+            
           </Swiper>
         </>
       );
