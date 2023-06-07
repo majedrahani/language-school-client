@@ -9,14 +9,14 @@ import banner_3 from '../../assets/banner-3.png'
 
 const Banner = () => {
     return (
-        <>
+        <div className="">
           <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
             <SwiperSlide><img className=" w-full" src={banner_1} alt="banner image 1" /></SwiperSlide>
             <SwiperSlide><img className=" w-full" src={banner_2} alt="banner image 2" /></SwiperSlide>
             <SwiperSlide><img className=" w-full" src={banner_3} alt="banner image 3" /></SwiperSlide>
             
           </Swiper>
-        </>
+        </div>
       );
 };
 

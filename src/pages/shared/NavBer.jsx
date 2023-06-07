@@ -9,14 +9,14 @@ const NavBer = () => {
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/'>Instructors</Link></li>
         </div>
-        
+
         <div className="divider divider-horizontal "></div>
-        <li><Link to='/' className='text-[16px]'>Login</Link></li>
+        <li><Link to='/login' className='text-[16px]'>Login</Link></li>
     </>
 
     return (
-        <div>
-            <div className="navbar bg-base-100">
+        <div >
+            <div className="navbar bg-base-100 fixed z-10 bg-opacity-90 max-w-screen-2xl ">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -34,10 +34,10 @@ const NavBer = () => {
                     </ul>
                 </div>
                 <div className=' navbar-end'>
-                    <button className=' btn btn-success'>User</button>
+                    <button className=' btn bg-[#01A2A6]'>User</button>
                 </div>
             </div>
-            
+
         </div>
     );
 };

@@ -5,10 +5,10 @@ import { FaFacebook, FaTwitter, FaYoutube } from "react-icons/fa";
 const Footer = () => {
     return (
         <div>
-            <footer className="footer footer-center p-10 bg-slate-100 ">
+            <footer className="footer footer-center p-10 bg-slate-200 ">
                 <div className=' lg:flex justify-between w-full lg:px-40'>
                     <div className=' my-auto'>
-                        <img src={logo} alt="logo" className='w-[300px]' />
+                        <img src={logo} alt="logo" className='w-[300px] shadow-inner ' />
                         
                     </div>
                     <div className=' mb-auto'>
