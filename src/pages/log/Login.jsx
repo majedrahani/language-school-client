@@ -4,19 +4,30 @@ import login from '../../assets/login.png'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
+import {FaGoogle } from "react-icons/fa";
 
 const Login = () => {
 
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     // const onSubmit = data => console.log(data);
-    const { signIn } = useContext(AuthContext);
+    const { signIn, googleSignIn } = useContext(AuthContext);
+
+    const handleGoogleSignIn = () =>{
+        googleSignIn()
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            Swal.fire('Successfully you have logged in !')
+        })
+        .catch(error => console.log(error.message))
+    }
 
     const onSubmit = data => {
         signIn(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                
+
                 Swal.fire('Successfully you have logged in !')
                 reset()
             })
@@ -53,6 +64,12 @@ const Login = () => {
                             </div>
                             <div className="form-control mt-6">
                                 <button className=' btn bg-[#01A2A6] text-white'>Login</button>
+                            </div>
+                            <div className="divider">OR</div>
+                            <div className="form-control mt-6">
+                                <button onClick={handleGoogleSignIn} className=' btn btn-outline text-[#01A2A6]'>
+                                    <FaGoogle />
+                                    Sign in with Google</button>
                             </div>
                         </form>
                     </div>
