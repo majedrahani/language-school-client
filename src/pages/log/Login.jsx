@@ -58,7 +58,7 @@ const Login = () => {
                                 <label className="label">
                                     <p>
                                         New to here?
-                                        <Link to='/singIn' className=' font-bold text-[#01A2A6] pl-1'>Sign in</Link>
+                                        <Link to='/singIn' className=' font-bold text-[#01A2A6] pl-1'>Sign Up</Link>
                                     </p>
                                 </label>
                             </div>

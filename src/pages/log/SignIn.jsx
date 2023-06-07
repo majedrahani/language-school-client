@@ -37,28 +37,37 @@ const SignIn = () => {
                                     <span className="label-text">Name</span>
                                 </label>
                                 <input type="text" {...register("name", { required: true })} placeholder="name" className="input input-bordered" />
-                                {errors.name && <span className="text-red-600">name is required</span>}
+                                {errors.name && <span className="text-red-500">name is required</span>}
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
                                 <input type="text" {...register("email", { required: true })} placeholder="email" className="input input-bordered" />
-                                {errors.email && <span className="text-red-600">email is required</span>}
+                                {errors.email && <span className="text-red-500">email is required</span>}
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" {...register("password", { required: true })} placeholder="password" className="input input-bordered" />
-                                {errors.password && <span className="text-red-600">password is required</span>}
+                                <input type="password" {...register("password", { 
+                                    required: true,
+                                    minLength: 6,
+                                    maxLength: 20,
+                                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/
+                                    })} placeholder="password" className="input input-bordered" />
+                                {errors.password && <span className="text-red-500">password is required</span>}
+                                
+                                {errors.password?.type === 'minLength' && <p className="text-red-500">Password must be 6 characters</p>}
+                                {errors.password?.type === 'maxLength' && <p className="text-red-500">Password must be less than 20 characters</p>}
+                                {errors.password?.type === 'pattern' && <p className="text-red-500">Password must have one Uppercase one lower case, one number and one special character.</p>}
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Confirm Password</span>
                                 </label>
                                 <input type="password" {...register("confirm_password", { required: true })} placeholder="password" className="input input-bordered" />
-                                {errors.confirm_password && <span className="text-red-600">Confirm is required</span>}
+                                {errors.confirm_password && <span className="text-red-500">Confirm is required</span>}
 
                             </div>
                             <div className="form-control">
@@ -66,7 +75,7 @@ const SignIn = () => {
                                     <span className="label-text">Photo URL</span>
                                 </label>
                                 <input type="text" {...register("photoUrl", { required: true })} placeholder="photo url" className="input input-bordered" />
-                                {errors.photoUrl && <span className="text-red-600">Photo URL is required</span>}
+                                {errors.photoUrl && <span className="text-red-500">Photo URL is required</span>}
                                 <label className="label">
                                     <p>
                                         Already have an account?
@@ -75,7 +84,7 @@ const SignIn = () => {
                                 </label>
                             </div>
                             <div className="form-control mt-6">
-                                <button className=' btn bg-[#01A2A6] text-white'>Sign In</button>
+                                <button className=' btn bg-[#01A2A6] text-white'>Sign Up</button>
                             </div>
                         </form>
                     </div>
