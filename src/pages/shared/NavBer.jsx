@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png'
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const NavBer = () => {
+    const { user, logOut } = useContext(AuthContext)
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error));
+    }
 
     const navOption = <>
         <div className='font-bold text-[16px] flex'>
@@ -11,7 +19,13 @@ const NavBer = () => {
         </div>
 
         <div className="divider divider-horizontal "></div>
-        <li><Link to='/login' className='text-[16px]'>Login</Link></li>
+        {
+            user ?
+                <li><Link onClick={handleLogOut} className='text-[16px]'>Log Out</Link></li>
+                :
+                <li><Link to='/login' className='text-[16px]'>Login</Link></li>
+        }
+
     </>
 
     return (
@@ -34,7 +48,11 @@ const NavBer = () => {
                     </ul>
                 </div>
                 <div className=' navbar-end'>
-                    <button className=' btn bg-[#01A2A6]'>User</button>
+                    {
+                        user &&
+                        <div className="tooltip hover:tooltip-open tooltip-left py-0" data-tip={user && user.displayName}>
+                            {user && <img src={user.photoURL} alt="" className='w-[50px] my-5 h-[50px] rounded-full border-4 border-[#01A2A6]' />} </div>
+                    }
                 </div>
             </div>
 
