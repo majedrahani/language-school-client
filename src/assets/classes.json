@@ -1,0 +1,75 @@
+{
+    "approved_classes": [
+      {
+        "image": "https://example.com/image1.jpg",
+        "name": "Spanish 101",
+        "instructor_name": "Maria Rodriguez",
+        "available_seats": 15,
+        "price": 49.99
+      },
+      {
+        "image": "https://example.com/image2.jpg",
+        "name": "French Conversation",
+        "instructor_name": "Jean-Luc Dupont",
+        "available_seats": 10,
+        "price": 39.99
+      },
+      {
+        "image": "https://example.com/image3.jpg",
+        "name": "German Grammar",
+        "instructor_name": "Hans Müller",
+        "available_seats": 12,
+        "price": 44.99
+      },
+      {
+        "image": "https://example.com/image4.jpg",
+        "name": "Italian Pronunciation",
+        "instructor_name": "Giulia Rossi",
+        "available_seats": 8,
+        "price": 34.99
+      },
+      {
+        "image": "https://example.com/image5.jpg",
+        "name": "Japanese Writing",
+        "instructor_name": "Yuki Nakamura",
+        "available_seats": 7,
+        "price": 54.99
+      },
+      {
+        "image": "https://example.com/image6.jpg",
+        "name": "Mandarin Chinese for Beginners",
+        "instructor_name": "Li Wei",
+        "available_seats": 10,
+        "price": 49.99
+      },
+      {
+        "image": "https://example.com/image7.jpg",
+        "name": "Russian Vocabulary",
+        "instructor_name": "Olga Ivanova",
+        "available_seats": 5,
+        "price": 29.99
+      },
+      {
+        "image": "https://example.com/image8.jpg",
+        "name": "Arabic Conversation",
+        "instructor_name": "Ahmed Khalil",
+        "available_seats": 6,
+        "price": 39.99
+      },
+      {
+        "image": "https://example.com/image9.jpg",
+        "name": "Korean Grammar",
+        "instructor_name": "Ji-Won Kim",
+        "available_seats": 9,
+        "price": 44.99
+      },
+      {
+        "image": "https://example.com/image10.jpg",
+        "name": "Portuguese Pronunciation",
+        "instructor_name": "Pedro Santos",
+        "available_seats": 7,
+        "price": 34.99
+      }
+    ]
+  }
+  
