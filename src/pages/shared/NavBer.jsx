@@ -13,9 +13,9 @@ const NavBer = () => {
     }
 
     const navOption = <>
-        <div className='font-bold text-[16px] flex'>
+        <div className='font-bold text-[16px] lg:flex'>
             <li><Link to='/'>Home</Link></li>
-            <li><Link to='/'>Instructors</Link></li>
+            <li><Link to='/instructors'>Instructors</Link></li>
             <li><Link to='/'>Classes</Link></li>
         </div>
 

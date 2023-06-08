@@ -21,7 +21,7 @@ const PInstructors = () => {
     return (
         <div className=' mb-20'>
             <h2 className=' text-2xl text-slate-900 text-center'>Popular Instructors</h2>
-            <div className=' flex overflow-scroll gap-4 mx-36 pt-10 '>
+            <div className=' flex overflow-scroll gap-4 lg:mx-36 pt-10 '>
                 {
                     popularInstructors.map(instructor => <PInstructorsCart
                     instructor={instructor}
