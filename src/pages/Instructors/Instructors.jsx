@@ -17,12 +17,15 @@ const Instructors = () => {
 
             <Cover img={instructorsImg} title="Instructors"></Cover>
 
-            <div>
-                {
-                    instructors.map(singleInstructor => <InstructorCart
-                    singleInstructor={singleInstructor}
-                    ></InstructorCart>)
-                }
+            <div className='my-20'>
+                <h2 className=' text-2xl text-slate-900 text-center mb-10'>Our All Instructors</h2>
+                <div className=' grid lg:grid-cols-3 lg:gap-5 lg:px-24'>
+                    {
+                        instructors.map(singleInstructor => <InstructorCart
+                            singleInstructor={singleInstructor}
+                        ></InstructorCart>)
+                    }
+                </div>
             </div>
         </div>
     );
