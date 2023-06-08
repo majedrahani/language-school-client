@@ -1,7 +1,7 @@
 import React from 'react';
 
 const PopularClassCart = ({ singleClass }) => {
-    console.log(singleClass);
+    // console.log(singleClass);
     const { students, name, image } = singleClass;
     return (
         <div>

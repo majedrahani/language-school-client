@@ -1,75 +1,74 @@
-{
-    "instructors": [
+ [
       {
-        "image": "https://example.com/image1.jpg",
+        "image": "https://i.ibb.co/17q79qW/1.png",
         "name": "Maria Rodriguez",
         "email": "maria.rodriguez@example.com",
         "classes_taken": 5,
         "class_names": ["Spanish 101", "Spanish Conversation", "Advanced Spanish Grammar"]
       },
       {
-        "image": "https://example.com/image2.jpg",
+        "image": "https://i.ibb.co/1bFmHmr/2.png",
         "name": "Jean-Luc Dupont",
         "email": "jeanluc.dupont@example.com",
         "classes_taken": 3,
         "class_names": ["French Conversation", "French Pronunciation"]
       },
       {
-        "image": "https://example.com/image3.jpg",
+        "image": "https://i.ibb.co/8203HWM/3.png",
         "name": "Hans Müller",
         "email": "hans.mueller@example.com",
         "classes_taken": 4,
         "class_names": ["German Grammar", "German Vocabulary"]
       },
       {
-        "image": "https://example.com/image4.jpg",
+        "image": "https://i.ibb.co/WyS1r6x/4.png",
         "name": "Giulia Rossi",
         "email": "giulia.rossi@example.com",
         "classes_taken": 2,
         "class_names": ["Italian Pronunciation"]
       },
       {
-        "image": "https://example.com/image5.jpg",
+        "image": "https://i.ibb.co/6gn7qvm/5.png",
         "name": "Yuki Nakamura",
         "email": "yuki.nakamura@example.com",
         "classes_taken": 6,
         "class_names": ["Japanese Writing", "Japanese Conversation"]
       },
       {
-        "image": "https://example.com/image6.jpg",
+        "image": "https://i.ibb.co/G5Nc2fx/6.png",
         "name": "Li Wei",
         "email": "li.wei@example.com",
         "classes_taken": 4,
         "class_names": ["Mandarin Chinese for Beginners", "Intermediate Mandarin"]
       },
       {
-        "image": "https://example.com/image7.jpg",
+        "image": "https://i.ibb.co/C0DRdTW/7.png",
         "name": "Olga Ivanova",
         "email": "olga.ivanova@example.com",
         "classes_taken": 3,
         "class_names": ["Russian Vocabulary"]
       },
       {
-        "image": "https://example.com/image8.jpg",
+        "image": "https://i.ibb.co/pzcwZ57/8.png",
         "name": "Ahmed Khalil",
         "email": "ahmed.khalil@example.com",
         "classes_taken": 2,
         "class_names": ["Arabic Conversation"]
       },
       {
-        "image": "https://example.com/image9.jpg",
+        "image": "https://i.ibb.co/fYKp39n/9.png",
         "name": "Ji-Won Kim",
         "email": "jiwon.kim@example.com",
         "classes_taken": 5,
         "class_names": ["Korean Grammar", "Korean Conversation"]
       },
       {
-        "image": "https://example.com/image10.jpg",
+        "image": "https://i.ibb.co/JvzLKvs/10.png",
         "name": "Pedro Santos",
         "email": "pedro.santos@example.com",
         "classes_taken": 2,
         "class_names": ["Portuguese Pronunciation"]
       }
     ]
-  }
+  
   

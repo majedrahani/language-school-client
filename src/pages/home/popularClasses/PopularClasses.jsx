@@ -5,7 +5,7 @@ import PopularClassCart from './PopulerClassCart';
 const PopularClasses = () => {
     const [popularClasses, setPopularClasses] = useState([]);
     const [classes] = useClasses();
-    console.log(classes);
+    // console.log(classes);
     useEffect(() => {
         if (classes.length > 0) {
 
@@ -16,7 +16,7 @@ const PopularClasses = () => {
             setPopularClasses(sortedClasses.slice(0, 6))
         }
     }, [classes])
-    console.log(popularClasses);
+    // console.log(popularClasses);
     return (
         <div className='py-20'>
             <h2 className=' text-2xl text-slate-900 text-center'>Popular Classes</h2>
