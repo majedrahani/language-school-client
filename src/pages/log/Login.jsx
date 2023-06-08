@@ -1,13 +1,16 @@
 import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import login from '../../assets/login.png'
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { FaGoogle } from "react-icons/fa";
 import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     // const onSubmit = data => console.log(data);
@@ -19,6 +22,7 @@ const Login = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 Swal.fire('Successfully you have logged in !')
+                navigate(from, { replace: true });
             })
             .catch(error => console.log(error.message))
     }
@@ -30,6 +34,7 @@ const Login = () => {
                 console.log(loggedUser);
 
                 Swal.fire('Successfully you have logged in !')
+                navigate(from, { replace: true });
                 reset()
             })
             .catch(error => console.log(error))

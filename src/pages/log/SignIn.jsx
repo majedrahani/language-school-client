@@ -1,12 +1,13 @@
 import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import login from '../../assets/login.png'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
 
 const SignIn = () => {
+    const navigate = useNavigate()
     const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     // const onSubmit = data => console.log(data);
     const { createUser, updateUserProfile } = useContext(AuthContext);
@@ -18,6 +19,7 @@ const SignIn = () => {
                 console.log(loggedUser);
                 updateUserProfile(data.name, data.photoUrl)
                 Swal.fire('Successfully you have created an account!')
+                navigate('/')
                 reset()
             })
             .catch(error => console.log(error))

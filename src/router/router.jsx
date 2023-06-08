@@ -6,6 +6,7 @@ import Login from "../pages/log/Login";
 import Error from "../pages/Error/error";
 import Instructors from "../pages/Instructors/Instructors";
 import Classes from "../pages/Classes/Classes";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'instructors',
-                element: <Instructors></Instructors>
+                element: <PrivateRoute><Instructors></Instructors></PrivateRoute>
             },
             {
                 path: '/classes',
