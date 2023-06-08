@@ -5,7 +5,10 @@ const ClassesCart = ({ singleClass }) => {
     const { students, price, name, instructor_name, image, available_seats } = singleClass;
     return (
         <div>
-            <div className="card card-compact h-full rounded-none  bg-base-100 shadow-xl">
+            <div className={`${available_seats > 0 ?
+                "card card-compact h-full rounded-none  bg-base-100 shadow-xl"
+                : "card card-compact h-full rounded-none bg-red-200  shadow-xl"
+                }`}>
                 <figure><img src={image} alt="Shoes" /></figure>
                 <div className="card-body line-clamp-none">
                     <h2 className="card-title mb-0">{name}</h2>
@@ -15,10 +18,15 @@ const ClassesCart = ({ singleClass }) => {
                         <p className=' font-bold text-[#01A2A6]'>Price : ${price}</p>
                     </div>
                     <p className=' font-bold text-[#01A2A6]'>Available Seats :
-                        <span className={`${available_seats>0 ? "ml-2 px-3 bg-amber-100 rounded" : "bg-red-500 text-white ml-2 rounded px-3"}`}>
+                        <span className={`${available_seats > 0 ? "ml-2 px-3 bg-amber-100 rounded" : "bg-red-500 text-white ml-2 rounded px-3"}`}>
                             {available_seats}
                         </span></p>
-
+                    <div className='w-full flex justify-center'>
+                        <button className={`${available_seats > 0 ?
+                            "btn bg-[#01A2A6] text-white mt-5 btn-sm w-full rounded"
+                            :"btn btn-disabled  text-white mt-5 btn-sm w-full rounded"
+                            }`}>Select</button>
+                    </div>
 
                 </div>
             </div>

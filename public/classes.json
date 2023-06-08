@@ -43,7 +43,7 @@
       "image": "https://i.ibb.co/Tc5Rzcw/12.png",
       "name": "Mandarin Chinese for Beginners",
       "instructor_name": "Li Wei",
-      "available_seats": 10,
+      "available_seats":10,
       "students": 13,
       "price": 49.99
     },
@@ -59,7 +59,7 @@
       "image": "https://i.ibb.co/9gMtMpM/14.png",
       "name": "Arabic Conversation",
       "instructor_name": "Ahmed Khalil",
-      "available_seats": 6,
+      "available_seats": 0,
       "students": 9,
       "price": 39.99
     },
