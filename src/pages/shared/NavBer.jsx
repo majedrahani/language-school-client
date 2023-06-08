@@ -16,7 +16,7 @@ const NavBer = () => {
         <div className='font-bold text-[16px] lg:flex'>
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/instructors'>Instructors</Link></li>
-            <li><Link to='/'>Classes</Link></li>
+            <li><Link to='/classes'>Classes</Link></li>
         </div>
 
         <div className="divider divider-horizontal "></div>
