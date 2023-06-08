@@ -16,6 +16,7 @@ const NavBer = () => {
         <div className='font-bold text-[16px] flex'>
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/'>Instructors</Link></li>
+            <li><Link to='/'>Classes</Link></li>
         </div>
 
         <div className="divider divider-horizontal "></div>
