@@ -5,8 +5,9 @@ import Swal from 'sweetalert2';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const ClassesCart = ({ singleClass }) => {
+    
     // console.log(singleClass);
-    const { students, price, name, instructor_name, image, available_seats, _id } = singleClass;
+    const { students, price, name, instructor_name, image, available_seats, _id,  } = singleClass;
     const { user } = useContext(AuthContext);
     const [, , refetch] = useClasses()
     const location = useLocation();
@@ -15,7 +16,7 @@ const ClassesCart = ({ singleClass }) => {
     const handleSelect = singleClass => {
         console.log(singleClass);
         if (user && user.email) {
-            const cartItem = { classId: _id, name, image, price, instructor_name, students }
+            const cartItem = { classId: _id, name, image, price, instructor_name, students, email : user.email }
             fetch('http://localhost:5000/carts', {
                 method: 'POST',
                 headers: {
