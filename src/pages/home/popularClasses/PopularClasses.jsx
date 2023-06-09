@@ -23,6 +23,7 @@ const PopularClasses = () => {
             <div className=' grid lg:grid-cols-3 gap-6 lg:px-36 pt-10'  >
                 {
                     popularClasses.map(singleClass => <PopularClassCart
+                        key={singleClass._id}
                         singleClass={singleClass}
                     ></PopularClassCart>)
                 }

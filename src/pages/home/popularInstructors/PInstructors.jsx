@@ -24,6 +24,7 @@ const PInstructors = () => {
             <div className=' flex overflow-scroll gap-4 lg:mx-36 pt-10 '>
                 {
                     popularInstructors.map(instructor => <PInstructorsCart
+                    key={instructor._id}
                     instructor={instructor}
                     ></PInstructorsCart>)
                 }

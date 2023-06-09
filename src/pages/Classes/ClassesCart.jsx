@@ -1,8 +1,55 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../Provider/AuthProvider';
+import useClasses from '../../Hooks/useClasses';
+import Swal from 'sweetalert2';
 
 const ClassesCart = ({ singleClass }) => {
-    console.log(singleClass);
-    const { students, price, name, instructor_name, image, available_seats } = singleClass;
+    // console.log(singleClass);
+    const { students, price, name, instructor_name, image, available_seats, _id } = singleClass;
+    const { user } = useContext(AuthContext);
+    const [, , refetch] = useClasses()
+
+    const handleSelect = singleClass => {
+        console.log(singleClass);
+        if (user && user.email) {
+            const cartItem = { classId: _id, name, image, price, instructor_name, students }
+            fetch('http://localhost:5000/carts', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(cartItem)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.insertedId) {
+                        refetch();
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'The class successfully selected.',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    }
+                })
+        }
+        else {
+            Swal.fire({
+                title: 'You Have to Login fast',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Login now!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/login', { state: { from: location } })
+                }
+            })
+        }
+
+    }
     return (
         <div>
             <div className={`${available_seats > 0 ?
@@ -22,9 +69,9 @@ const ClassesCart = ({ singleClass }) => {
                             {available_seats}
                         </span></p>
                     <div className='w-full flex justify-center'>
-                        <button className={`${available_seats > 0 ?
+                        <button onClick={() => handleSelect(singleClass)} className={`${available_seats > 0 ?
                             "btn bg-[#01A2A6] text-white mt-5 btn-sm w-full rounded"
-                            :"btn btn-disabled  text-white mt-5 btn-sm w-full rounded"
+                            : "btn btn-disabled  text-white mt-5 btn-sm w-full rounded"
                             }`}>Select</button>
                     </div>
 

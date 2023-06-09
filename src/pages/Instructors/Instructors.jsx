@@ -22,6 +22,7 @@ const Instructors = () => {
                 <div className=' grid lg:grid-cols-3 gap-5 lg:px-24'>
                     {
                         instructors.map(singleInstructor => <InstructorCart
+                            key={singleInstructor._id}
                             singleInstructor={singleInstructor}
                         ></InstructorCart>)
                     }

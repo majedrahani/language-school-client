@@ -20,6 +20,7 @@ const Classes = () => {
                 <div className=' grid lg:grid-cols-3 gap-5 lg:px-28 '>
                     {
                         classes.map(singleClass => <ClassesCart
+                            key={singleClass._id}
                             singleClass={singleClass}
                         ></ClassesCart>)
                     }
