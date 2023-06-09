@@ -17,6 +17,10 @@ const NavBer = () => {
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/instructors'>Instructors</Link></li>
             <li><Link to='/classes'>Classes</Link></li>
+            <li 
+            className={`${user ? " block" : "hidden"}`}
+            ><Link to='/dashboard'>Dashboard</Link></li>
+            
         </div>
 
         <div className="divider divider-horizontal "></div>
