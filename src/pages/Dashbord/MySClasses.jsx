@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import useCart from '../../Hooks/useCart';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { FaTrashAlt } from 'react-icons/fa';
+import { MdPayment } from "react-icons/md";
 import Swal from 'sweetalert2';
 
 const MySClasses = () => {
@@ -46,14 +47,14 @@ const MySClasses = () => {
                     <thead>
                         <tr className='bg-[#01A2A6] text-white'>
                             <th>#</th>
-                            <th>Class Name</th>
+                            <th className='pl-20'>Class Name</th>
                             <th>Instructor</th>
                             <th>Price</th>
-                            <th>Action</th>
+                            <th className=' text-center'>Action</th>
 
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody className='bg-[#dafbfc]'>
                         {
                             carts.map((cart, index) =>
                                 <tr key={cart._id}>
@@ -61,7 +62,7 @@ const MySClasses = () => {
                                     <td>
                                         <div className="flex items-center space-x-3">
                                             <div className="avatar">
-                                                <div className="mask mask-squircle w-12 h-12">
+                                                <div className="mask rounded-sm w-12 h-12">
                                                     <img src={cart.image} alt="Avatar Tailwind CSS Component" />
                                                 </div>
                                             </div>
@@ -76,7 +77,13 @@ const MySClasses = () => {
                                     </td>
                                     <td>${cart.price}</td>
                                     <th>
-                                        <button onClick={() => handleDelete(cart)} className="btn rounded-sm btn-ghost bg-red-400  text-white ml-auto"><FaTrashAlt /></button>
+
+                                        <div className=' flex '>
+                                            <button className="btn btn-xs rounded-sm btn-ghost bg-[#01A2A6]  text-white ml-auto"><MdPayment /> Pay</button>
+
+                                            <button onClick={() => handleDelete(cart)} className="btn btn-xs rounded-sm btn-ghost bg-red-500  text-white ml-auto"> delete</button>
+                                        </div>
+
                                     </th>
                                 </tr>
                             )
