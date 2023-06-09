@@ -2,12 +2,15 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import useClasses from '../../Hooks/useClasses';
 import Swal from 'sweetalert2';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const ClassesCart = ({ singleClass }) => {
     // console.log(singleClass);
     const { students, price, name, instructor_name, image, available_seats, _id } = singleClass;
     const { user } = useContext(AuthContext);
     const [, , refetch] = useClasses()
+    const location = useLocation();
+    const navigate = useNavigate()
 
     const handleSelect = singleClass => {
         console.log(singleClass);

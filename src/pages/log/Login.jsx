@@ -4,7 +4,7 @@ import login from '../../assets/login.png'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
-import { FaGoogle } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 import { Helmet } from 'react-helmet-async';
 
 const Login = () => {
@@ -78,7 +78,7 @@ const Login = () => {
                                 <div className="divider">OR</div>
                                 <div className="form-control mt-6">
                                     <button onClick={handleGoogleSignIn} className=' btn btn-outline text-[#01A2A6]'>
-                                        <FaGoogle />
+                                        <FcGoogle className=' text-xl' />
                                         Sign in with Google</button>
                                 </div>
                             </form>
