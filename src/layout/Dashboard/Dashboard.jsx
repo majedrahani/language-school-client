@@ -6,11 +6,13 @@ import { FcAcceptDatabase } from "react-icons/fc";
 import { Link, Outlet } from 'react-router-dom';
 import { MdMenu } from 'react-icons/md';
 import { Helmet } from 'react-helmet-async';
+import useAdmin from '../../Hooks/useAdmin';
 
 const Dashboard = () => {
 
-    const isAdmin = true;
-    const isInstructor = true;
+    // const isAdmin = true;
+    const [isAdmin] = useAdmin();
+    console.log(isAdmin);
     return (
         <>
             <Helmet>
