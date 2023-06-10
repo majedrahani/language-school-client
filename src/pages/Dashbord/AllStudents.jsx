@@ -12,26 +12,45 @@ const AllStudents = () => {
     })
 
     const handleMakeAdmin = student => {
-        fetch(`http://localhost:5000/students/admin/${student._id}`,{
+        fetch(`http://localhost:5000/students/admin/${student._id}`, {
             method: 'PATCH'
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
-            if(data.modifiedCount){
-                refetch();
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: `${student.name} is an Admin Now!`,
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
-            }
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount) {
+                    refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${student.name} is an Admin Now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+    }
+    const handleMakeInstructor = student => {
+        fetch(`http://localhost:5000/students/instructor/${student._id}`, {
+            method: 'PATCH'
         })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount) {
+                    refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${student.name} is an Instructor Now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
     }
 
-    const handleDelete = student =>{
+    const handleDelete = student => {
         Swal.fire({
             title: 'Are you sure?',
             text: "You won't be able to revert this!",
@@ -60,7 +79,7 @@ const AllStudents = () => {
         })
     }
 
-    
+
     return (
         <div className='flex justify-center w-full h-full'>
             <Helmet>
@@ -105,9 +124,13 @@ const AllStudents = () => {
                                             {student.name}
                                         </td>
                                         <td className='flex gap-2'><MdEmail className='my-auto' />{student.email}</td>
-                                        <td>{
-                                            student.role === 'admin' ?  `Admin `: "Student"
-                                            }</td>
+                                        <td>
+                                            {
+                                                student.role === 'admin' ? 'Admin' :
+                                                    student.role === 'instructor' ? 'Instructor' :
+                                                        'Student'
+                                            }
+                                        </td>
                                         <th>
                                             <div className="dropdown dropdown-left">
                                                 <label tabIndex={0} className="btn btn-xs btn-ghost m-1"><BsThreeDots /></label>
@@ -116,7 +139,7 @@ const AllStudents = () => {
                                                         <button onClick={() => handleMakeAdmin(student)} className="btn btn-xs rounded-sm btn-ghost normal-case ml-auto "> Make Admin</button>
                                                     </li>
                                                     <li>
-                                                        <button className="btn btn-xs rounded-sm btn-ghost normal-case  ml-auto"> Make Instructor</button>
+                                                        <button onClick={() => handleMakeInstructor(student)} className="btn btn-xs rounded-sm btn-ghost normal-case  ml-auto"> Make Instructor</button>
                                                     </li>
 
                                                     <li>
