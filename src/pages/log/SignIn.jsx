@@ -18,9 +18,26 @@ const SignIn = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 updateUserProfile(data.name, data.photoUrl)
-                Swal.fire('Successfully you have created an account!')
-                navigate('/')
-                reset()
+                .then(() => {
+                    const saveStudent = {name : data.name, email: data.email}
+                    fetch('http://localhost:5000/students',{
+                        method: 'POST',
+                        headers: {
+                            'content-type' : 'application/json'
+                        },
+                        body: JSON.stringify(saveStudent)
+                        
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        if(data.insertedId){
+                            Swal.fire('Successfully you have created an account!')
+                            navigate('/')
+                            reset()
+                        }
+                    })
+                })
+               
             })
             .catch(error => console.log(error))
     }

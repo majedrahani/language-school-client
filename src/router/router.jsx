@@ -9,6 +9,7 @@ import Classes from "../pages/Classes/Classes";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../layout/Dashboard/Dashboard";
 import MySClasses from "../pages/Dashbord/MySClasses";
+import AllStudents from "../pages/Dashbord/AllStudents";
 
 const router = createBrowserRouter([
     {
@@ -45,6 +46,9 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/mySClasses',
                 element: <MySClasses></MySClasses>
+            },{
+                path: '/dashboard/allStudents',
+                element: <AllStudents></AllStudents>
             }
         ]
     }

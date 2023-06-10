@@ -1,0 +1,90 @@
+import { useQuery } from '@tanstack/react-query';
+import React from 'react';
+import { Helmet } from 'react-helmet-async';
+import { MdEmail } from 'react-icons/md';
+import { BsThreeDots } from "react-icons/bs";
+
+const AllStudents = () => {
+    const { data: students = [], refetch } = useQuery(['students'], async () => {
+        const res = await fetch('http://localhost:5000/students')
+        return res.json();
+    })
+    return (
+        <div className='flex justify-center w-full h-full'>
+            <Helmet>
+                <title>All Students| Language Academy</title>
+            </Helmet>
+
+            <div className=' w-full  '>
+                <h2 className=' font-bold text-2xl '>Total students : {students.length}</h2>
+                <div className="overflow-x-auto ">
+                    <table className="table">
+                        {/* head */}
+                        <thead>
+                            <tr className='bg-[#01A2A6] text-white'>
+                                <th>#</th>
+                                {/* <th className='pl-20'>Student image</th> */}
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th className=''>Action</th>
+
+                            </tr>
+                        </thead>
+                        <tbody className='bg-[#dafbfc]'>
+                            {
+                                students.map((student, index) =>
+                                    <tr key={student._id}>
+                                        <th>{index + 1}</th>
+                                        {/* <td>
+                                            <div className="flex items-center space-x-3">
+                                                <div className="avatar">
+                                                    <div className="mask rounded-sm w-12 h-12">
+                                                        <img src={student.image} alt="Avatar Tailwind CSS Component" />
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className="font-bold">{student.name}</div>
+
+                                                </div>
+                                            </div>
+                                        </td> */}
+                                        <td>
+                                            {student.name}
+                                        </td>
+                                        <td className='flex gap-2'><MdEmail className='my-auto' />{student.email}</td>
+                                        <td>Student</td>
+                                        <th>
+                                            <div className="dropdown dropdown-left">
+                                                <label tabIndex={0} className="btn btn-xs btn-ghost m-1"><BsThreeDots /></label>
+                                                <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100  rounded-sm ">
+                                                    <li className=''>
+                                                        <button className="btn btn-xs rounded-sm btn-ghost normal-case ml-auto "> Make Admin</button>
+                                                    </li>
+                                                    <li>
+                                                        <button className="btn btn-xs rounded-sm btn-ghost normal-case  ml-auto"> Make Instructor</button>
+                                                    </li>
+
+                                                    <li>
+                                                        <button onClick={() => handleDelete(student)} className="btn btn-xs rounded-sm btn-ghost normal-case  ml-auto"> Delete</button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+
+
+                                        </th>
+                                    </tr>
+                                )
+                            }
+                        </tbody>
+
+
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    );
+};
+
+export default AllStudents;

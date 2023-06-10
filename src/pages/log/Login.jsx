@@ -21,8 +21,24 @@ const Login = () => {
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
-                Swal.fire('Successfully you have logged in !')
-                navigate(from, { replace: true });
+                
+                    const saveStudent = {name : loggedUser.displayName, email: loggedUser.email}
+                    fetch('http://localhost:5000/students',{
+                        method: 'POST',
+                        headers: {
+                            'content-type' : 'application/json'
+                        },
+                        body: JSON.stringify(saveStudent)
+                        
+                    })
+                    .then(res => res.json())
+                    .then(() => {
+                        
+                            navigate(from, { replace: true }); 
+                        
+                    })
+                
+                
             })
             .catch(error => console.log(error.message))
     }
