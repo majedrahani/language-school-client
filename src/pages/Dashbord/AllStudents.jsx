@@ -143,7 +143,7 @@ const AllStudents = () => {
                                                     </li>
 
                                                     <li>
-                                                        <button onClick={() => handleDelete(student)} className="btn btn-xs rounded-sm btn-ghost normal-case  ml-auto"> Delete</button>
+                                                        <button onClick={() => handleDelete(student)} className="btn btn-xs rounded-sm btn-ghost normal-case  ml-auto"> Remove</button>
                                                     </li>
                                                 </ul>
                                             </div>
