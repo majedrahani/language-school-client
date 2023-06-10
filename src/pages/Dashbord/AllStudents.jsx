@@ -1,14 +1,66 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
-import { MdEmail } from 'react-icons/md';
+import { MdAdminPanelSettings, MdEmail } from 'react-icons/md';
 import { BsThreeDots } from "react-icons/bs";
+import Swal from 'sweetalert2';
 
 const AllStudents = () => {
     const { data: students = [], refetch } = useQuery(['students'], async () => {
         const res = await fetch('http://localhost:5000/students')
         return res.json();
     })
+
+    const handleMakeAdmin = student => {
+        fetch(`http://localhost:5000/students/admin/${student._id}`,{
+            method: 'PATCH'
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if(data.modifiedCount){
+                refetch();
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: `${student.name} is an Admin Now!`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+            }
+        })
+    }
+
+    const handleDelete = student =>{
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/students/${student._id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            refetch();
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
+            }
+        })
+    }
+
+    
     return (
         <div className='flex justify-center w-full h-full'>
             <Helmet>
@@ -53,13 +105,15 @@ const AllStudents = () => {
                                             {student.name}
                                         </td>
                                         <td className='flex gap-2'><MdEmail className='my-auto' />{student.email}</td>
-                                        <td>Student</td>
+                                        <td>{
+                                            student.role === 'admin' ?  `Admin `: "Student"
+                                            }</td>
                                         <th>
                                             <div className="dropdown dropdown-left">
                                                 <label tabIndex={0} className="btn btn-xs btn-ghost m-1"><BsThreeDots /></label>
                                                 <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100  rounded-sm ">
                                                     <li className=''>
-                                                        <button className="btn btn-xs rounded-sm btn-ghost normal-case ml-auto "> Make Admin</button>
+                                                        <button onClick={() => handleMakeAdmin(student)} className="btn btn-xs rounded-sm btn-ghost normal-case ml-auto "> Make Admin</button>
                                                     </li>
                                                     <li>
                                                         <button className="btn btn-xs rounded-sm btn-ghost normal-case  ml-auto"> Make Instructor</button>
