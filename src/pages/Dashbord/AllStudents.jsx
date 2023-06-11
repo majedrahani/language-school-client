@@ -4,11 +4,13 @@ import { Helmet } from 'react-helmet-async';
 import { MdAdminPanelSettings, MdEmail } from 'react-icons/md';
 import { BsThreeDots } from "react-icons/bs";
 import Swal from 'sweetalert2';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const AllStudents = () => {
+    const [axiosSecure] = useAxiosSecure();
     const { data: students = [], refetch } = useQuery(['students'], async () => {
-        const res = await fetch('http://localhost:5000/students')
-        return res.json();
+        const res = await axiosSecure.get('/students')
+        return res.data;
     })
 
     const handleMakeAdmin = student => {
