@@ -40,10 +40,10 @@ const Dashboard = () => {
                                         <li><Link to='/dashboard/allStudents'> <FaUsers /> All Students</Link></li>
                                         <li><Link><FcAcceptDatabase className=' text-xl' /> My Enrolled Classes</Link></li>
                                     </div>
-                                </>: isInstructor ? <>
+                                </> : isInstructor ? <>
                                     <div className='mb-10 '>
                                         <li><Link to='/dashboard'><FaHome /> Instructor Home</Link></li>
-                                        <li><Link to='/dashboard/mySClasses'><BiSelectMultiple /> My Selected Classes</Link></li>
+                                        <li><Link to='/dashboard/addClasses'><BiSelectMultiple /> Add Classes</Link></li>
                                         <li><Link><FcAcceptDatabase className=' text-xl' /> My Enrolled Classes</Link></li>
                                     </div>
                                 </> : <>
@@ -52,7 +52,7 @@ const Dashboard = () => {
                                         <li><Link to='/dashboard/mySClasses'><BiSelectMultiple /> My Selected Classes</Link></li>
                                         <li><Link><FcAcceptDatabase className=' text-xl' /> My Enrolled Classes</Link></li>
                                     </div>
-                                </> 
+                                </>
                             }
 
                             <hr />
