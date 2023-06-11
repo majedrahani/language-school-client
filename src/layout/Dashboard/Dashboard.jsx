@@ -7,11 +7,13 @@ import { Link, Outlet } from 'react-router-dom';
 import { MdMenu } from 'react-icons/md';
 import { Helmet } from 'react-helmet-async';
 import useAdmin from '../../Hooks/useAdmin';
+import useInstructor from '../../Hooks/useInstructor';
 
 const Dashboard = () => {
 
     // const isAdmin = true;
     const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
     console.log(isAdmin);
     return (
         <>
@@ -38,13 +40,19 @@ const Dashboard = () => {
                                         <li><Link to='/dashboard/allStudents'> <FaUsers /> All Students</Link></li>
                                         <li><Link><FcAcceptDatabase className=' text-xl' /> My Enrolled Classes</Link></li>
                                     </div>
+                                </>: isInstructor ? <>
+                                    <div className='mb-10 '>
+                                        <li><Link to='/dashboard'><FaHome /> Instructor Home</Link></li>
+                                        <li><Link to='/dashboard/mySClasses'><BiSelectMultiple /> My Selected Classes</Link></li>
+                                        <li><Link><FcAcceptDatabase className=' text-xl' /> My Enrolled Classes</Link></li>
+                                    </div>
                                 </> : <>
                                     <div className='mb-10 '>
                                         <li><Link to='/dashboard'><FaHome /> Student Home</Link></li>
                                         <li><Link to='/dashboard/mySClasses'><BiSelectMultiple /> My Selected Classes</Link></li>
                                         <li><Link><FcAcceptDatabase className=' text-xl' /> My Enrolled Classes</Link></li>
                                     </div>
-                                </>
+                                </> 
                             }
 
                             <hr />
