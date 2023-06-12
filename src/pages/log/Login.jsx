@@ -23,7 +23,7 @@ const Login = () => {
                 console.log(loggedUser);
                 
                     const saveStudent = {name : loggedUser.displayName, email: loggedUser.email}
-                    fetch('http://localhost:5000/students',{
+                    fetch(' https://language-school-server-kappa.vercel.app/students',{
                         method: 'POST',
                         headers: {
                             'content-type' : 'application/json'

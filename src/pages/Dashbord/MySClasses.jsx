@@ -23,7 +23,7 @@ const MySClasses = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/carts/${cart._id}`, {
+                fetch(` https://language-school-server-kappa.vercel.app/carts/${cart._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

@@ -3,6 +3,7 @@ import Banner from './Banner';
 import { Helmet } from 'react-helmet-async';
 import PopularClasses from './popularClasses/PopularClasses';
 import PInstructors from './popularInstructors/PInstructors';
+import Subscribe from './Subscribe';
 
 const Home = () => {
     return (
@@ -14,6 +15,7 @@ const Home = () => {
                 <Banner></Banner>
                 <PopularClasses></PopularClasses>
                 <PInstructors></PInstructors>
+                <Subscribe></Subscribe>
             </div>
         </>
     );

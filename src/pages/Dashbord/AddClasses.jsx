@@ -58,11 +58,11 @@ const AddClasses = () => {
 
                 <input
                     {...register("instructor_name", { required: true, maxLength: 120 })}
-                    defaultValue={user.displayName}
+                    defaultValue={user?.displayName}
                     type="text" placeholder="Instructor name" className="input w-full rounded-sm mb-4 " />
                 <input
                     {...register("email", { required: true, maxLength: 120 })}
-                    defaultValue={user.email}
+                    defaultValue={user?.email}
                     type="text" placeholder="Instructor email" className="input w-full rounded-sm mb-4 " />
 
 

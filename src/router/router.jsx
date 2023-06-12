@@ -13,6 +13,7 @@ import AllStudents from "../pages/Dashbord/AllStudents";
 import AddClasses from "../pages/Dashbord/AddClasses";
 import Payment from "../pages/Dashbord/payment/Payment";
 import PaymentAll from "../pages/Dashbord/payment/PaymentAll";
+import MyAddedClass from "../pages/Dashbord/MyAddedClass";
 
 const router = createBrowserRouter([
     {
@@ -26,7 +27,7 @@ const router = createBrowserRouter([
             },
             {
                 path: 'instructors',
-                element: <PrivateRoute><Instructors></Instructors></PrivateRoute>
+                element: <Instructors></Instructors>
             },
             {
                 path: '/classes',
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/addClasses',
                 element: <AddClasses></AddClasses>
+            },
+            {
+                path: '/dashboard/myAddClass',
+                element: <MyAddedClass></MyAddedClass>
             },
             {
                 path: '/dashboard/payment/:id',

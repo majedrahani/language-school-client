@@ -38,13 +38,13 @@ const Dashboard = () => {
                                     <div className='mb-10 '>
                                         <li><Link to='/dashboard'><FaHome /> Admin Home</Link></li>
                                         <li><Link to='/dashboard/allStudents'> <FaUsers /> All Students</Link></li>
-                                        <li><Link><FcAcceptDatabase className=' text-xl' /> My Enrolled Classes</Link></li>
+                                        
                                     </div>
                                 </> : isInstructor ? <>
                                     <div className='mb-10 '>
                                         <li><Link to='/dashboard'><FaHome /> Instructor Home</Link></li>
                                         <li><Link to='/dashboard/addClasses'><BiSelectMultiple /> Add Classes</Link></li>
-                                        <li><Link><FcAcceptDatabase className=' text-xl' /> My Enrolled Classes</Link></li>
+                                        <li><Link to='/dashboard/myAddClass'><FcAcceptDatabase className=' text-xl' /> My uploaded Classes</Link></li>
                                     </div>
                                 </> : <>
                                     <div className='mb-10 '>
