@@ -5,6 +5,7 @@ import { FaTrashAlt } from 'react-icons/fa';
 import { MdPayment } from "react-icons/md";
 import Swal from 'sweetalert2';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 
 const MySClasses = () => {
     const [carts, refetch] = useCart();
@@ -84,7 +85,12 @@ const MySClasses = () => {
                                         <th>
 
                                             <div className=' flex '>
-                                                <button className="btn btn-xs rounded-sm btn-ghost bg-[#01A2A6]  text-white ml-auto"><MdPayment /> Pay</button>
+                                                <Link to={`/dashboard/payment/${cart._id}?price=${cart.price}?name=${cart.name}?img=${cart.image}`}>
+                                                    <button className="btn btn-xs rounded-sm btn-ghost bg-[#01A2A6] text-white ml-auto">
+                                                        <MdPayment /> Pay
+                                                    </button>
+                                                </Link>
+
 
                                                 <button onClick={() => handleDelete(cart)} className="btn btn-xs rounded-sm btn-ghost bg-red-500  text-white ml-auto"> delete</button>
                                             </div>
