@@ -50,7 +50,7 @@ const Dashboard = () => {
                                     <div className='mb-10 '>
                                         <li><Link to='/dashboard'><FaHome /> Student Home</Link></li>
                                         <li><Link to='/dashboard/mySClasses'><BiSelectMultiple /> My Selected Classes</Link></li>
-                                        <li><Link><FcAcceptDatabase className=' text-xl' /> My Enrolled Classes</Link></li>
+                                        <li><Link to="/dashboard/paymentHistory"><FcAcceptDatabase className=' text-xl' /> Payment History</Link></li>
                                     </div>
                                 </>
                             }

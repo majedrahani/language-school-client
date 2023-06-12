@@ -97,7 +97,7 @@ const CheckoutForm = ({price}) => {
                         Swal.fire({
                             title: 'Payment Done',
                             text: 'Success fully purchased',
-                            imageUrl: 'https://i.ibb.co/ZhbBYG4/thanks.png',
+                            imageUrl: 'https://i.ibb.co/HpzVC4S/tnx.png',
                             imageWidth: 400,
                             imageHeight: 200,
                             

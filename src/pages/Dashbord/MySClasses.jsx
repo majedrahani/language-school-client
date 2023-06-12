@@ -85,7 +85,7 @@ const MySClasses = () => {
                                         <th>
 
                                             <div className=' flex '>
-                                                <Link to={`/dashboard/payment/${cart._id}?price=${cart.price}?name=${cart.name}?img=${cart.image}`}>
+                                                <Link to={`/dashboard/payment/${cart._id}?price=${cart.price}`}>
                                                     <button className="btn btn-xs rounded-sm btn-ghost bg-[#01A2A6] text-white ml-auto">
                                                         <MdPayment /> Pay
                                                     </button>
