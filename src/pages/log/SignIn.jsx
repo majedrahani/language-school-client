@@ -20,7 +20,7 @@ const SignIn = () => {
                 updateUserProfile(data.name, data.photoUrl)
                 .then(() => {
                     const saveStudent = {name : data.name, email: data.email}
-                    fetch(' https://language-school-server-kappa.vercel.app/students',{
+                    fetch(' http://localhost:5000/students',{
                         method: 'POST',
                         headers: {
                             'content-type' : 'application/json'

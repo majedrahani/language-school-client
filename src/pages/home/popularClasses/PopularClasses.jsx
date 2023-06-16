@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import useClasses from '../../../Hooks/useClasses';
 import PopularClassCart from './PopulerClassCart';
+import { AuthContext } from '../../../Provider/AuthProvider';
 
 const PopularClasses = () => {
+    const { darkMode } = useContext(AuthContext)
     const [popularClasses, setPopularClasses] = useState([]);
     const [classes] = useClasses();
     // console.log(classes);
@@ -19,7 +21,9 @@ const PopularClasses = () => {
     // console.log(popularClasses);
     return (
         <div className='py-20'>
-            <h2 className=' text-2xl text-slate-900 text-center'>Popular Classes</h2>
+            
+                <h2 className={`${darkMode ? "text-2xl text-white text-center" : "text-2xl text-slate-900 text-center"}`}>Popular Classes</h2>
+            
             <div className=' grid lg:grid-cols-3 gap-6 lg:px-36 pt-10'  >
                 {
                     popularClasses.map(singleClass => <PopularClassCart

@@ -3,8 +3,17 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/logo.png'
 import { AuthContext } from '../../Provider/AuthProvider';
 
+
+import { BsMoonStarsFill, BsSunFill } from "react-icons/bs";
+
 const NavBer = () => {
-    const { user, logOut } = useContext(AuthContext)
+
+    const { user, logOut, darkMode, toggleDarkMode } = useContext(AuthContext)
+
+    const handleDarkMode = () => {
+        toggleDarkMode()
+    }
+
 
     const handleLogOut = () => {
         logOut()
@@ -17,10 +26,10 @@ const NavBer = () => {
             <li><Link to='/'>Home</Link></li>
             <li><Link to='/instructors'>Instructors</Link></li>
             <li><Link to='/classes'>Classes</Link></li>
-            <li 
-            className={`${user ? " block" : "hidden"}`}
+            <li
+                className={`${user ? " block" : "hidden"}`}
             ><Link to='/dashboard'>Dashboard</Link></li>
-            
+
         </div>
 
         <div className="divider divider-horizontal "></div>
@@ -31,11 +40,16 @@ const NavBer = () => {
                 <li><Link to='/login' className='text-[16px]'>Login</Link></li>
         }
 
+
+
+
     </>
 
     return (
         <div >
-            <div className="navbar bg-base-100 fixed z-10 bg-opacity-90 max-w-screen-2xl ">
+            <div className={`${darkMode ?
+                'navbar bg-zinc-800 text-yellow-500 lg:text-white fixed z-10 bg-opacity-90 max-w-screen-2xl'
+                : 'navbar bg-base-100 fixed z-10 bg-opacity-90 max-w-screen-2xl'}`}>
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -53,10 +67,16 @@ const NavBer = () => {
                     </ul>
                 </div>
                 <div className=' navbar-end'>
+                    <div className='pr-5 my-auto'>
+                        <button onClick={handleDarkMode}>
+
+                            {darkMode ? <BsSunFill className=' text-xl' /> : <BsMoonStarsFill className=' text-xl' />}
+                        </button>
+                    </div>
                     {
                         user &&
                         <div className="tooltip hover:tooltip-open tooltip-left py-0" data-tip={user && user.displayName}>
-                            {user && <img src={user.photoURL} alt="" className='w-[50px] my-5 h-[50px] rounded-full border-4 border-[#01A2A6]' />} </div>
+                            {user && <img src={user.photoURL} alt="" className='w-[50px]  h-[50px] rounded-full border-4 border-[#01A2A6] my-auto' />} </div>
                     }
                 </div>
             </div>

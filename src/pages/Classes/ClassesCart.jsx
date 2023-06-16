@@ -17,7 +17,7 @@ const ClassesCart = ({ singleClass }) => {
         console.log(singleClass);
         if (user && user.email) {
             const cartItem = { classId: _id, name, image, price, instructor_name, students, email : user.email }
-            fetch(' https://language-school-server-kappa.vercel.app/carts', {
+            fetch(' http://localhost:5000/carts', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

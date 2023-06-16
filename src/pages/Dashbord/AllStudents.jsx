@@ -14,7 +14,7 @@ const AllStudents = () => {
     })
 
     const handleMakeAdmin = student => {
-        fetch(` https://language-school-server-kappa.vercel.app/students/admin/${student._id}`, {
+        fetch(` http://localhost:5000/students/admin/${student._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -33,7 +33,7 @@ const AllStudents = () => {
             })
     }
     const handleMakeInstructor = student => {
-        fetch(` https://language-school-server-kappa.vercel.app/students/instructor/${student._id}`, {
+        fetch(` http://localhost:5000/students/instructor/${student._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -63,7 +63,7 @@ const AllStudents = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(` https://language-school-server-kappa.vercel.app/students/${student._id}`, {
+                fetch(` http://localhost:5000/students/${student._id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

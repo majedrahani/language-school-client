@@ -17,7 +17,7 @@ const MyAddedClass = () => {
     //         confirmButtonText: 'Yes, delete it!'
     //     }).then((result) => {
     //         if (result.isConfirmed) {
-    //             fetch(` https://language-school-server-kappa.vercel.app/addClasses/${addClasses._id}`, {
+    //             fetch(` http://localhost:5000/addClasses/${addClasses._id}`, {
     //                 method: 'DELETE'
     //             })
     //                 .then(res => res.json())

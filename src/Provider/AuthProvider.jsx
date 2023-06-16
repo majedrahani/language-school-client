@@ -9,6 +9,8 @@ export const AuthContext = createContext(null);
 const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
+    const [darkMode, setDarkMode] = useState(false);
+
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -40,13 +42,17 @@ const AuthProvider = ({ children }) => {
         });
     }
 
+    const toggleDarkMode = () => {
+        setDarkMode(!darkMode);
+      };
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser);
             console.log('current user', currentUser);
 
             if (currentUser) {
-                axios.post(' https://language-school-server-kappa.vercel.app/jwt', { email: currentUser?.email })
+                axios.post(' http://localhost:5000/jwt', { email: currentUser?.email })
                     .then(data => {
                         console.log(data)
                         localStorage.setItem('access-token', data.data.token)
@@ -71,7 +77,9 @@ const AuthProvider = ({ children }) => {
         signIn,
         googleSignIn,
         logOut,
-        updateUserProfile
+        updateUserProfile,
+        toggleDarkMode,
+        darkMode
     }
 
     return (
